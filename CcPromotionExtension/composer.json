@@ -1,0 +1,37 @@
+{
+  "name": "cc/promotion-extension",
+  "description": "Commerce Care",
+  "version": "1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Commerce Care d.o.o."
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CcPromotionExtension\\": "src/"
+    }
+  },
+  "require": {
+    "shopware/core": "*",
+    "shopware/administration": "*"
+  },
+  "extra": {
+    "shopware-plugin-class": "CcPromotionExtension\\CcPromotionExtension",
+    "copyright": "Copyright ©  2021. Commerce Care d.o.o.",
+    "label": {
+      "de-DE": "Promotion extension",
+      "en-GB": "Promotion extension"
+    },
+    "manufacturerLink": {
+      "de-DE": "https://www.commercecare.de/",
+      "en-GB": "https://www.commercecare.de/"
+    },
+    "supportLink": {
+      "de-DE": "https://www.commercecare.de/",
+      "en-GB": "https://www.commercecare.de/"
+    }
+  }
+}

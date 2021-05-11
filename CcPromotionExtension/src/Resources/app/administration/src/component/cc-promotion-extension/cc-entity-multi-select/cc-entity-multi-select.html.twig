@@ -1,0 +1,6 @@
+{% block sw_entity_multi_select_base_selection_slot %}
+    {% parent %}
+    <div class="sw-select__selection-indicators is--select-all">
+        <sw-icon v-if="isExpanded()" @click="selectToggle" class="sw-select__select-indicator" :name="selectToggleClass" small></sw-icon>
+    </div>
+{% endblock %}

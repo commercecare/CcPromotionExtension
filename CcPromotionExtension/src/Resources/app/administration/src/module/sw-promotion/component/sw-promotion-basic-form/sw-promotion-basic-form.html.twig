@@ -1,0 +1,13 @@
+{% block sw_promotion_basic_form_exclusions %}
+    <cc-entity-multi-select
+            v-if="excludedPromotions"
+            class="sw-promotion-basic__select-exclusions test"
+            :label="$tc('sw-promotion.detail.main.general.labelPromotionExclusions')"
+            :placeholder="$tc('sw-promotion.detail.main.general.placeholderPromotionExclusions')"
+            :criteria="exclusionCriteria"
+            :entityCollection="excludedPromotions"
+            :disabled="!acl.can('promotion.editor')"
+            :resultLimit="limit"
+            @change="onChangeExclusions">
+    </cc-entity-multi-select>
+{% endblock %}
