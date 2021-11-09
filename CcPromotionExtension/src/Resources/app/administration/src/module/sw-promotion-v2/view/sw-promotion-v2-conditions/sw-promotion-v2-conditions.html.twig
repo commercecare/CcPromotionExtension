@@ -1,0 +1,12 @@
+{% block sw_promotion_v2_conditions_pre_conditions_exclusions %}
+    <cc-entity-multi-select
+        class="sw-promotion-v2-conditions__rules-exclusion-selection"
+        :label="$tc('sw-promotion-v2.detail.conditions.preConditions.labelPromotionExclusions')"
+        :placeholder="$tc('sw-promotion-v2.detail.conditions.preConditions.placeholderPromotionExclusions')"
+        :criteria="exclusionCriteria"
+        :entity-collection="excludedPromotions"
+        :disabled="!acl.can('promotion.editor')"
+        @change="onChangeExclusions"
+        :resultLimit="limit"
+    />
+{% endblock %}
