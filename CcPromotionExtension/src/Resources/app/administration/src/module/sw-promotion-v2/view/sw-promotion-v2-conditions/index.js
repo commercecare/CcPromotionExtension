@@ -1,15 +1,22 @@
-import template from './sw-promotion-basic-form.html.twig';
-import './sw-promotion-basic-form.scss';
+import template from './sw-promotion-v2-conditions.html.twig';
+import './sw-promotion-v2-conditions.scss';
 
 const { Component } = Shopware;
-const { Criteria } = Shopware.Data;
+const { Criteria, EntityCollection } = Shopware.Data;
 const types = Shopware.Utils.types;
 
-Component.override('sw-promotion-basic-form', {
+Component.override('sw-promotion-v2-conditions', {
     template,
+
+    inject: [
+        'repositoryFactory',
+        'acl',
+    ],
+
     data () {
         return {
-            limit: 500
+            limit: 500,
+            excludedPromotions: this.createPromotionCollection(),
         };
     },
     computed: {
@@ -30,7 +37,7 @@ Component.override('sw-promotion-basic-form', {
             const promotionRepository = this.repositoryFactory.create('promotion');
             const criteria = (new Criteria(1, this.limit)).addFilter(Criteria.equalsAny('id', this.promotion.exclusionIds));
 
-            promotionRepository.search(criteria, Shopware.Context.api).then((excluded) => {
+            promotionRepository.search(criteria).then((excluded) => {
                 this.excludedPromotions = excluded;
             });
         }
